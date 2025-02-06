@@ -2,7 +2,7 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Injectable, PLATFORM_ID, inject, signal } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService {
   private readonly document = inject(DOCUMENT);
@@ -23,7 +23,6 @@ export class ThemeService {
 
       // Set initial value based the local storage preference or system preference
       this.setTheme(theme === 'dark');
-
     } else {
       // Default theme for server-side rendering
       this.setTheme(false);
@@ -48,6 +47,5 @@ export class ThemeService {
         localStorage.setItem('theme', 'light');
       }
     }
-
   }
-} 
+}

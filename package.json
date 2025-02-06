@@ -7,7 +7,9 @@
     "build": "nx build shuwenger",
     "test": "nx test shuwenger",
     "lint": "nx lint shuwenger",
-    "e2e": "nx e2e shuwenger"
+    "e2e": "nx e2e shuwenger",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "private": true,
   "dependencies": {

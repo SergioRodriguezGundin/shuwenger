@@ -8,7 +8,6 @@ import { DashboardComponent } from './dashboard.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-
 export class AppComponent {
   title = 'shuwenger';
 }
