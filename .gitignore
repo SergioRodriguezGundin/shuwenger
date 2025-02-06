@@ -42,3 +42,7 @@ Thumbs.db
 .nx/workspace-data
 
 .angular
+
+# Cursor Rules
+.cursorrules
+.cursor/*
