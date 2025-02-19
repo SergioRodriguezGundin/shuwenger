@@ -11,15 +11,15 @@ export const appRoutes: Route[] = [
   {
     path: 'dashboard',
     component: DashboardLayoutComponent,
-    //children: [
-    //  {
-    //    path: '/drivers',
-    //    loadChildren: () =>
-    //      import('./features/drivers/drivers.component').then(
-    //        (m) => m.DriversComponent
-    //      ),
-    //  },
-    //],
+    children: [
+      {
+        path: 'home',
+        loadChildren: () =>
+          import('./features/dashboard/dashboard').then(
+            (m) => m.dashboardRoutes
+          ),
+      },
+    ],
   },
   //{
   //  path: '',
