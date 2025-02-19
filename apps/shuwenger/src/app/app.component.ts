@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { DashboardComponent } from './dashboard.component';
 
 @Component({
-  imports: [RouterModule, DashboardComponent],
+  imports: [RouterModule],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
