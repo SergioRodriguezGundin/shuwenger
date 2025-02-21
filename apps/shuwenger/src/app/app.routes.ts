@@ -13,7 +13,7 @@ export const appRoutes: Route[] = [
     component: DashboardLayoutComponent,
     children: [
       {
-        path: 'home',
+        path: '',
         loadChildren: () =>
           import('./features/dashboard/dashboard').then(
             (m) => m.dashboardRoutes

@@ -23,6 +23,12 @@
       ],
       "@spartan-ng/ui-card-helm": [
         "libs/ui/ui-card-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-command-helm": [
+        "libs/ui/ui-command-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-icon-helm": [
+        "libs/ui/ui-icon-helm/src/index.ts"
       ]
     }
   },

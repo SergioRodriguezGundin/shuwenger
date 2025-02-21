@@ -25,6 +25,8 @@
     "@angular/router": "~19.0.0",
     "@angular/ssr": "~19.0.0",
     "@fontsource-variable/exo-2": "^5.1.1",
+    "@ng-icons/core": "^29.10.0",
+    "@ng-icons/lucide": "^30.3.0",
     "@ngrx/signals": "^19.0.1",
     "@spartan-ng/brain": "0.0.1-alpha.398",
     "class-variance-authority": "^0.7.0",
