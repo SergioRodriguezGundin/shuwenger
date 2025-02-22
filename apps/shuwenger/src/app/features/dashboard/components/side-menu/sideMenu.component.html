@@ -1,42 +1,51 @@
-<hlm-command class="w-full border-0">
-  <hlm-command-list>
-    <hlm-command-group>
-      <hlm-command-group-label>F1 stats</hlm-command-group-label>
+<section class="flex flex-col gap-2">
+  <h2 class="mb-2 px-4 text-lg font-semibold tracking-tight">Dashboard</h2>
+  <a
+    routerLink="/dashboard/home"
+    routerLinkActive="bg-secondary text-secondary-foreground"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="hover:bg-secondary/80 focus-visible:ring-ring inline-flex h-9 w-full items-center justify-start rounded px-4 py-2 text-left text-sm transition-colors focus-visible:right-1 focus:focus-visible:outline-none cursor-pointer"
+  >
+    <ng-icon hlm name="lucideHouse" class="mr-2" />
+    Home
+  </a>
+  <a
+    routerLink="/dashboard/races"
+    routerLinkActive="bg-secondary text-secondary-foreground"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="hover:bg-secondary/80 focus-visible:ring-ring inline-flex h-9 w-full items-center justify-start rounded px-4 py-2 text-left text-sm transition-colors focus-visible:right-1 focus:focus-visible:outline-none cursor-pointer"
+  >
+    <ng-icon hlm name="lucideCalendar" class="mr-2" />
+    Races
+  </a>
+  <a
+    routerLink="/dashboard/teams"
+    routerLinkActive="bg-secondary text-secondary-foreground"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="hover:bg-secondary/80 focus-visible:ring-ring inline-flex h-9 w-full items-center justify-start rounded px-4 py-2 text-left text-sm transition-colors focus-visible:right-1 focus:focus-visible:outline-none cursor-pointer"
+  >
+    <ng-icon hlm name="lucideCar" class="mr-2" />
+    Teams
+  </a>
+  <a
+    routerLink="/dashboard/drivers"
+    routerLinkActive="bg-secondary text-secondary-foreground"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="hover:bg-secondary/80 focus-visible:ring-ring inline-flex h-9 w-full items-center justify-start rounded px-4 py-2 text-left text-sm transition-colors focus-visible:right-1 focus:focus-visible:outline-none cursor-pointer"
+  >
+    <ng-icon hlm name="lucideUser" class="mr-2" />
+    Drivers
+  </a>
+  <hr class="my-2" />
 
-      <button hlm-command-item value="Home" (click)="navigateTo('home')">
-        <ng-icon hlm name="lucideHouse" hlmCommandIcon />
-        Home
-      </button>
-      <button hlm-command-item value="Races" (click)="navigateTo('races')">
-        <ng-icon hlm name="lucideCalendar" hlmCommandIcon />
-        Races
-      </button>
-      <button hlm-command-item value="Teams" (click)="navigateTo('teams')">
-        <ng-icon hlm name="lucideCar" hlmCommandIcon />
-        Teams
-      </button>
-      <button hlm-command-item value="Drivers" (click)="navigateTo('drivers')">
-        <ng-icon hlm name="lucideUser" hlmCommandIcon />Drivers
-      </button>
-    </hlm-command-group>
-
-    <hlm-command-separator />
-
-    <hlm-command-group>
-      <hlm-command-group-label>Users</hlm-command-group-label>
-
-      <button hlm-command-item value="Profile">
-        Profile
-        <hlm-command-shortcut>⌘P</hlm-command-shortcut>
-      </button>
-      <button hlm-command-item value="Billing">
-        Billing
-        <hlm-command-shortcut>⌘B</hlm-command-shortcut>
-      </button>
-      <button hlm-command-item value="Settings">
-        Settings
-        <hlm-command-shortcut>⌘S</hlm-command-shortcut>
-      </button>
-    </hlm-command-group>
-  </hlm-command-list>
-</hlm-command>
+  <h2 class="mb-2 px-4 text-lg font-semibold tracking-tight">Settings</h2>
+  <a
+    routerLink="/profile"
+    routerLinkActive="bg-secondary text-secondary-foreground"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="hover:bg-secondary/80 focus-visible:ring-ring inline-flex h-9 w-full items-center justify-start rounded px-4 py-2 text-left text-sm transition-colors focus-visible:right-1 focus:focus-visible:outline-none cursor-pointer"
+  >
+    <ng-icon hlm name="lucideSettings" class="mr-2" />
+    Profile
+  </a>
+</section>
