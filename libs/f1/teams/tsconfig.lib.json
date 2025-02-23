@@ -5,12 +5,7 @@
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
-    "types": [],
-    "strict": true,
-    "fullTemplateTypeCheck": true
-  },
-  "angularCompilerOptions": {
-    "strictTemplates": true,
+    "types": []
   },
   "exclude": [
     "src/**/*.spec.ts",
@@ -18,7 +13,5 @@
     "jest.config.ts",
     "src/**/*.test.ts"
   ],
-  "include": [
-    "src/**/*.ts"
-  ]
+  "include": ["src/**/*.ts"]
 }
