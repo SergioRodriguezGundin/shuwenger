@@ -1,7 +1,7 @@
 {
-  "name": "teams",
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/f1/teams/src",
+  "name": "trpc-f1",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/trpc-f1/src",
   "prefix": "lib",
   "projectType": "library",
   "tags": [],
@@ -10,24 +10,18 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-        "project": "libs/f1/teams/ng-package.json"
+        "project": "libs/trpc-f1/ng-package.json"
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/f1/teams/jest.config.ts"
+        "jestConfig": "libs/trpc-f1/jest.config.ts"
       }
     },
     "lint": {
       "executor": "@nx/eslint:lint"
-    },
-    "dependencies": {
-      "executor": "@nx/workspace:dependencies",
-      "options": {
-        "dependencies": ["trpc-f1"]
-      }
     }
   }
 }
