@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CreateTRPCProxyClient, createTRPCProxyClient, httpBatchLink } from '@trpc/client';
 import { F1Router } from '@gunsrf1/api-contracts';
-import { environment } from '../../../../../apps/shuwenger/src/env/environment';
+import { environment } from '../../env/environment';
 
 @Injectable({
   providedIn: 'root',

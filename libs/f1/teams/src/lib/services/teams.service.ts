@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { ITeam } from '@gunsrf1/api-contracts/src/teams/team.interface';
-import { TrpcApiService } from '../../../../../trpc-f1/src/lib/services/trpc-api.service';
+import { TrpcApiService } from '@trpc-f1/lib/services/trpc-api.service';
 
 @Injectable({
   providedIn: 'root',

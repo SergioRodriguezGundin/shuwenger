@@ -44,7 +44,7 @@ Thumbs.db
 .angular
 
 # Environment files
-apps/shuwenger/src/env/*
+env/
 
 # Cursor Rules
 .cursorrules

@@ -11,6 +11,19 @@
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
         "project": "libs/trpc-f1/ng-package.json"
+      },
+      "fileReplacements": [
+        {
+          "replace": "libs/trpc-f1/src/env/environment.ts",
+          "with": "libs/trpc-f1/src/env/environment.prod.ts"
+        }
+      ]
+    },
+    "development": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/trpc-f1/ng-package.json"
       }
     },
     "test": {
