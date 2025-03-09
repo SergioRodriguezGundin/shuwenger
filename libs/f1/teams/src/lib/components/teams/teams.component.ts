@@ -1,17 +1,20 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 
 import { TeamsStore } from '../../store/teams.store';
 @Component({
   selector: 'lib-f1-teams',
   templateUrl: './teams.component.html',
-  imports: [CommonModule],
+  imports: [CommonModule, HlmButtonDirective],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TeamsComponent implements OnInit {
+export class TeamsComponent{
   readonly teamsStore = inject(TeamsStore);
 
-  ngOnInit() {
-    this.teamsStore.setTeams();
+  teams = computed(() => this.teamsStore.teams());
+
+  setYear(year: string) {
+    this.teamsStore.setYear(year);
   }
 }

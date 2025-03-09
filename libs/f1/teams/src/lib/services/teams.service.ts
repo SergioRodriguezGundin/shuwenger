@@ -8,12 +8,11 @@ import { TrpcApiService } from '@trpc-f1/lib/services/trpc-api.service';
 export class TeamsService {
   private readonly f1Api = inject(TrpcApiService);
 
-  async getTeams(): Promise<ITeam[]> {
+  public teams(year: string): Promise<ITeam[]> {
     try {
-      return await this.f1Api.getF1Trpc().teams.getTeams.query({ year: '2024' });
+      return this.f1Api.getF1Trpc().teams.getTeams.query({ year });
     } catch (error) {
-      console.error('Error fetching teams:', error);
-      return [];
+      return Promise.reject(error);
     }
   }
 }

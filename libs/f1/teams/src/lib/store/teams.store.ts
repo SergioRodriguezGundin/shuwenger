@@ -1,29 +1,39 @@
-import { computed, inject } from '@angular/core';
-import { ITeam } from '@gunsrf1/api-contracts/src/teams/team.interface';
-import { patchState, signalStore, withComputed, withMethods, withState } from '@ngrx/signals';
+import { computed, inject, resource, ResourceStatus } from '@angular/core';
+import { patchState, signalStore, withComputed, withMethods, withProps, withState } from '@ngrx/signals';
 import { TeamsService } from '../services/teams.service';
 
 type TeamsStore = {
-  teams: ITeam[] | undefined;
-  isLoading: boolean;
+  year: string;
 }
 
 const initialState: TeamsStore = {
-  teams: [],
-  isLoading: false,
+  year: '2024',
 };
 
 export const TeamsStore = signalStore(
   {providedIn: 'root'},
   withState(initialState),
-  withComputed(({teams}) => ({
-    totalTeams: computed(() => teams.length),
+  withProps(() => ({
+    _teamsService: inject(TeamsService),
   })),
-  withMethods((store, teamsService =  inject(TeamsService)) => ({
-    setTeams: async () => {
-      patchState(store, {isLoading: true});
-      const teams = await teamsService.getTeams();
-      patchState(store, {teams, isLoading: false});
+  withProps((store) => ({
+    _teamsResource: resource({
+      request: store.year,
+      loader: ({request: year}) => {
+        return store._teamsService.teams(year);
+      },
+      defaultValue: [],
+    })
+
+  })),
+  withComputed((store) => ({
+    teams: computed(() => store._teamsResource.value()),
+    totalTeams: computed(() => store._teamsResource.value().length),
+    isLoading: computed(() => store._teamsResource.status() === ResourceStatus.Loading),
+  })),
+  withMethods((store) => ({
+    setYear: (year: string) => {
+      patchState(store, {year});
     },
   }))
 );
