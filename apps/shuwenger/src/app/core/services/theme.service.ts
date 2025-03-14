@@ -7,7 +7,6 @@ import { Injectable, PLATFORM_ID, inject, signal } from '@angular/core';
 export class ThemeService {
   private readonly document = inject(DOCUMENT);
   private readonly platformId = inject(PLATFORM_ID);
-  private readonly darkThemeClass = 'dark';
 
   private readonly isDarkMode = signal<boolean>(false);
   readonly isDarkMode$ = this.isDarkMode.asReadonly();

@@ -1,7 +1,7 @@
 <div class="flex flex-col h-screen w-screen">
   <!-- Header -->
   <header
-    class="flex items-center justify-end gap-4 px-6 py-4 border-b bg-background h-14"
+    class="flex items-center justify-end gap-4 px-6 py-4 border-b border-base-300 bg-base-200 h-14"
   >
     <button
       (click)="themeService.toggleTheme()"
@@ -47,7 +47,7 @@
   <!-- Main Content Area -->
   <div class="grid grid-cols-[250px_1fr] h-full">
     <!-- Left Sidebar -->
-    <nav class="border-r bg-background p-4">
+    <nav class="bg-base-200 border-r border-base-300 p-4">
       <app-side-menu></app-side-menu>
     </nav>
 
