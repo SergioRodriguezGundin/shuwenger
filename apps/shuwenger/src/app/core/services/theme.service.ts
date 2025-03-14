@@ -37,12 +37,12 @@ export class ThemeService {
     this.isDarkMode.set(isDark);
 
     if (isDark) {
-      this.document.documentElement.classList.add(this.darkThemeClass);
+      this.document.documentElement.setAttribute('data-theme', 'dark');
       if (isPlatformBrowser(this.platformId)) {
         localStorage.setItem('theme', 'dark');
       }
     } else {
-      this.document.documentElement.classList.remove(this.darkThemeClass);
+      this.document.documentElement.setAttribute('data-theme', 'light');
       if (isPlatformBrowser(this.platformId)) {
         localStorage.setItem('theme', 'light');
       }
