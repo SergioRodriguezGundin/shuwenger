@@ -18,10 +18,6 @@
       "@shuwenger/*": ["apps/shuwenger/src/*"],
       "@f1/teams/*": ["libs/f1/teams/src/*"],
       "@trpc-f1/*": ["libs/trpc-f1/src/*"],
-      "@spartan-ng/ui-button-helm": ["libs/ui/ui-button-helm/src/index.ts"],
-      "@spartan-ng/ui-card-helm": ["libs/ui/ui-card-helm/src/index.ts"],
-      "@spartan-ng/ui-command-helm": ["libs/ui/ui-command-helm/src/index.ts"],
-      "@spartan-ng/ui-icon-helm": ["libs/ui/ui-icon-helm/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { ITeam } from '@gunsrf1/api-contracts/src/teams/team.interface';
+import { ITeam } from '@gunsrf1/api-contracts/src/teams/teams.interface';
 import { TrpcApiService } from '@trpc-f1/lib/services/trpc-api.service';
 
 @Injectable({

@@ -4,9 +4,6 @@
     class="flex items-center justify-end gap-4 px-6 py-4 border-b bg-background h-14"
   >
     <button
-      hlmBtn
-      variant="outline"
-      size="icon"
       (click)="themeService.toggleTheme()"
       [attr.aria-label]="
         isDarkMode() ? 'Switch to light theme' : 'Switch to dark theme'
