@@ -1,0 +1,22 @@
+/* Estilos para el listado de equipos */
+.menu li:hover {
+  background-color: rgba(var(--primary-rgb), 0.1);
+}
+
+/* Espaciado adicional entre los elementos de la lista */
+.menu li {
+  margin-bottom: 2px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Personalización para dispositivos móviles */
+@media (max-width: 480px) {
+  .menu li div {
+    flex-direction: column;
+    align-items: start;
+  }
+  
+  .menu li div > div {
+    margin-bottom: 4px;
+  }
+} 

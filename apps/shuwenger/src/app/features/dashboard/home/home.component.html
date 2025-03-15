@@ -5,8 +5,12 @@
   <div class="col-start-7 col-end-13 row-start-1 row-end-3 bg-base-200">
     <p>Stats</p>
   </div>
-  <div class="col-start-1 col-end-13 row-start-3 row-end-5 bg-base-200">
-    <app-driver-stats></app-driver-stats>
-    <app-drivers-teams></app-drivers-teams>
+  <div class="flex flex-row gap-4 col-start-1 col-end-13 row-start-3 row-end-5 bg-base-200">
+    <div class="flex-1 p-4 rounded-lg">
+      <lib-f1-team-list></lib-f1-team-list>
+    </div>
+    <div class="flex-1 p-4 rounded-lg">
+      <app-driver-stats></app-driver-stats>
+    </div>
   </div>
 </section>
