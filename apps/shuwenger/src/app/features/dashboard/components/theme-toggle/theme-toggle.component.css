@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  
+  .swap {
+    cursor: pointer;
+  }
+  
+  .swap-rotate {
+    transition: transform 0.3s;
+  }
+  
+  .swap-rotate:hover {
+    transform: scale(1.1);
+  } 
+}
