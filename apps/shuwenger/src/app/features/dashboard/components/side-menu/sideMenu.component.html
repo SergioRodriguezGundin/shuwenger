@@ -1,51 +1,46 @@
 <section class="flex flex-col gap-2">
-  <h2 class="mb-2 px-4 text-lg font-semibold tracking-tight">Dashboard</h2>
-  <!--<a
-    routerLink="/dashboard/home"
-    routerLinkActive="bg-secondary text-secondary-foreground"
-    [routerLinkActiveOptions]="{ exact: true }"
-    class="hover:bg-secondary/80 focus-visible:ring-ring inline-flex h-9 w-full items-center justify-start rounded px-4 py-2 text-left text-sm transition-colors focus-visible:right-1 focus:focus-visible:outline-none cursor-pointer"
-  >
-    <ng-icon hlm name="lucideHouse" class="mr-2" />
-    Home
-  </a>
-  <a
-    routerLink="/dashboard/races"
-    routerLinkActive="bg-secondary text-secondary-foreground"
-    [routerLinkActiveOptions]="{ exact: true }"
-    class="hover:bg-secondary/80 focus-visible:ring-ring inline-flex h-9 w-full items-center justify-start rounded px-4 py-2 text-left text-sm transition-colors focus-visible:right-1 focus:focus-visible:outline-none cursor-pointer"
-  >
-    <ng-icon hlm name="lucideCalendar" class="mr-2" />
-    Races
-  </a>
-  <a
-    routerLink="/dashboard/teams"
-    routerLinkActive="bg-secondary text-secondary-foreground"
-    [routerLinkActiveOptions]="{ exact: true }"
-    class="hover:bg-secondary/80 focus-visible:ring-ring inline-flex h-9 w-full items-center justify-start rounded px-4 py-2 text-left text-sm transition-colors focus-visible:right-1 focus:focus-visible:outline-none cursor-pointer"
-  >
-    <ng-icon hlm name="lucideCar" class="mr-2" />
-    Teams
-  </a>
-  <a
-    routerLink="/dashboard/drivers"
-    routerLinkActive="bg-secondary text-secondary-foreground"
-    [routerLinkActiveOptions]="{ exact: true }"
-    class="hover:bg-secondary/80 focus-visible:ring-ring inline-flex h-9 w-full items-center justify-start rounded px-4 py-2 text-left text-sm transition-colors focus-visible:right-1 focus:focus-visible:outline-none cursor-pointer"
-  >
-    <ng-icon hlm name="lucideUser" class="mr-2" />
-    Drivers
-  </a>
-  <hr class="my-2" />
+  <h2 class="mb-0 px-3 text-lg font-semibold tracking-tight">Dashboard</h2>
 
-  <h2 class="mb-2 px-4 text-lg font-semibold tracking-tight">Settings</h2>
-  <a
-    routerLink="/profile"
-    routerLinkActive="bg-secondary text-secondary-foreground"
-    [routerLinkActiveOptions]="{ exact: true }"
-    class="hover:bg-secondary/80 focus-visible:ring-ring inline-flex h-9 w-full items-center justify-start rounded px-4 py-2 text-left text-sm transition-colors focus-visible:right-1 focus:focus-visible:outline-none cursor-pointer"
-  >
-    <ng-icon hlm name="lucideSettings" class="mr-2" />
-    Profile
-  </a>-->
+  <ul class="menu bg-base-200 w-56">
+    <li>
+      <a
+        routerLink="/dashboard/home"
+        routerLinkActive="menu-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="hover:bg-secondary/80 focus-visible:ring-ring inline-flex h-9 w-full items-center justify-start rounded px-4 py-2 text-left text-sm transition-colors focus-visible:right-1 focus:focus-visible:outline-none cursor-pointer"
+      >
+        Home
+      </a>
+    </li>
+    <li>
+      <a
+        routerLink="/dashboard/races"
+        routerLinkActive="menu-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="hover:bg-secondary/80 focus-visible:ring-ring inline-flex h-9 w-full items-center justify-start rounded px-4 py-2 text-left text-sm transition-colors focus-visible:right-1 focus:focus-visible:outline-none cursor-pointer"
+      >
+        Races
+      </a>
+    </li>
+    <li>
+      <a
+        routerLink="/dashboard/teams"
+        routerLinkActive="menu-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="hover:bg-secondary/80 focus-visible:ring-ring inline-flex h-9 w-full items-center justify-start rounded px-4 py-2 text-left text-sm transition-colors focus-visible:right-1 focus:focus-visible:outline-none cursor-pointer"
+      >
+        Teams
+      </a>
+    </li>
+    <li>
+      <a
+        routerLink="/dashboard/drivers"
+        routerLinkActive="menu-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="hover:bg-secondary/80 focus-visible:ring-ring inline-flex h-9 w-full items-center justify-start rounded px-4 py-2 text-left text-sm transition-colors focus-visible:right-1 focus:focus-visible:outline-none cursor-pointer"
+      >
+      Drivers
+    </a>
+    </li>
+  </ul>
 </section>
