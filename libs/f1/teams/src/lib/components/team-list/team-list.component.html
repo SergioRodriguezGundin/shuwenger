@@ -7,20 +7,17 @@
   }
 
   @if (teams() && teams().length > 0) {
-    <ul class="menu bg-base-200 w-full rounded-box">
-      <li class="menu-title font-bold">Equipos de F1 - {{teamsStore.year()}}</li>
+    <ul class="list bg-base-200 rounded-box shadow-md">
+      <li class="p-4 pb-2 text-xs opacity-60 tracking-wid">Clasificación Equipos - {{teamsStore.year()}}</li>
       @for (team of teams(); track team.id) {
-        <li>
-          <div class="flex items-center w-full">
-            <div class="flex-none w-14 text-center font-semibold">
-              {{team.position}}
-            </div>
-            <div class="flex-1 min-w-0">
-              <span class="font-medium">{{ team.name }}</span>
-            </div>
-            <div class="flex-none w-20 text-right">
-              {{ team.points }} pts
-            </div>
+        <li class="list-row">
+          <div class="text-4xl font-thin opacity-30 tabular-nums">{{team.position}}</div>
+          <div class="flex flex-center rounded-box bg-white size-10"><img class="rounded-box" ngSrc="{{team.icon}}" alt="{{team.name}}" width="40" height="40" placeholder="blur"/></div>
+          <div class="list-col-grow flex items-center">
+            <span class="font-medium text-left">{{ team.name }}</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-xl font-medium">{{ team.points }} <span class="text-sm font-medium opacity-60">pts</span></span>
           </div>
         </li>
       }
