@@ -17,7 +17,7 @@
     "paths": {
       "@shuwenger/*": ["apps/shuwenger/src/*"],
       "@f1/teams/*": ["libs/f1/teams/src/*"],
-      "@trpc-f1/*": ["libs/trpc-f1/src/*"],
+      "@trpc-f1/*": ["libs/trpc-f1/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

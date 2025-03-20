@@ -13,4 +13,4 @@ import { ThemeService } from '../../../../core/services/theme.service';
 export class ThemeToggleComponent {
   protected readonly themeService = inject(ThemeService);
   protected readonly isDarkMode = this.themeService.isDarkMode$;
-} 
+}

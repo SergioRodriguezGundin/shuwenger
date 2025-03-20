@@ -1,0 +1,492 @@
+{
+  "graph": {
+    "nodes": {
+      "shuwenger-e2e": {
+        "name": "shuwenger-e2e",
+        "type": "e2e",
+        "data": {
+          "root": "apps/shuwenger-e2e",
+          "projectType": "application",
+          "metadata": {
+            "targetGroups": {
+              "E2E (CI)": ["e2e-ci--src/e2e/app.cy.ts", "e2e-ci"]
+            }
+          },
+          "targets": {
+            "e2e": {
+              "options": {
+                "cwd": "apps/shuwenger-e2e",
+                "command": "cypress run"
+              },
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production",
+                {
+                  "externalDependencies": ["cypress"]
+                }
+              ],
+              "outputs": [
+                "{workspaceRoot}/dist/cypress/apps/shuwenger-e2e/videos",
+                "{workspaceRoot}/dist/cypress/apps/shuwenger-e2e/screenshots"
+              ],
+              "parallelism": false,
+              "metadata": {
+                "technologies": ["cypress"],
+                "description": "Runs Cypress Tests",
+                "help": {
+                  "command": "pnpm exec cypress run --help",
+                  "example": {
+                    "args": ["--dev", "--headed"]
+                  }
+                }
+              },
+              "configurations": {
+                "production": {
+                  "command": "cypress run --env webServerCommand=\"npx nx run shuwenger:serve-static\""
+                }
+              },
+              "executor": "nx:run-commands"
+            },
+            "e2e-ci--src/e2e/app.cy.ts": {
+              "outputs": [
+                "{workspaceRoot}\\dist\\cypress\\apps\\shuwenger-e2e\\videos\\src-e2e-app-cy-ts",
+                "{workspaceRoot}\\dist\\cypress\\apps\\shuwenger-e2e\\screenshots\\src-e2e-app-cy-ts"
+              ],
+              "inputs": [
+                "default",
+                "^production",
+                {
+                  "externalDependencies": ["cypress"]
+                }
+              ],
+              "cache": true,
+              "options": {
+                "cwd": "apps/shuwenger-e2e",
+                "command": "cypress run --env webServerCommand=\"npx nx run shuwenger:serve-static\" --spec src/e2e/app.cy.ts --config=\"{\\\"baseUrl\\\":\\\"http://localhost:4200\\\",\\\"e2e\\\":{\\\"videosFolder\\\":\\\"..\\\\\\\\..\\\\\\\\dist\\\\\\\\cypress\\\\\\\\apps\\\\\\\\shuwenger-e2e\\\\\\\\videos\\\\\\\\src-e2e-app-cy-ts\\\",\\\"screenshotsFolder\\\":\\\"..\\\\\\\\..\\\\\\\\dist\\\\\\\\cypress\\\\\\\\apps\\\\\\\\shuwenger-e2e\\\\\\\\screenshots\\\\\\\\src-e2e-app-cy-ts\\\"}}\""
+              },
+              "parallelism": false,
+              "metadata": {
+                "technologies": ["cypress"],
+                "description": "Runs Cypress Tests in src/e2e/app.cy.ts in CI",
+                "help": {
+                  "command": "pnpm exec cypress run --help",
+                  "example": {
+                    "args": ["--dev", "--headed"]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {}
+            },
+            "e2e-ci": {
+              "executor": "nx:noop",
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production",
+                {
+                  "externalDependencies": ["cypress"]
+                }
+              ],
+              "outputs": [
+                "{workspaceRoot}/dist/cypress/apps/shuwenger-e2e/videos",
+                "{workspaceRoot}/dist/cypress/apps/shuwenger-e2e/screenshots"
+              ],
+              "dependsOn": [
+                {
+                  "target": "e2e-ci--src/e2e/app.cy.ts",
+                  "projects": "self",
+                  "params": "forward"
+                }
+              ],
+              "parallelism": false,
+              "metadata": {
+                "technologies": ["cypress"],
+                "description": "Runs Cypress Tests in CI",
+                "nonAtomizedTarget": "e2e",
+                "help": {
+                  "command": "pnpm exec cypress run --help",
+                  "example": {
+                    "args": ["--dev", "--headed"]
+                  }
+                }
+              },
+              "configurations": {},
+              "options": {}
+            },
+            "open-cypress": {
+              "options": {
+                "cwd": "apps/shuwenger-e2e",
+                "command": "cypress open"
+              },
+              "metadata": {
+                "technologies": ["cypress"],
+                "description": "Opens Cypress",
+                "help": {
+                  "command": "pnpm exec cypress open --help",
+                  "example": {
+                    "args": ["--dev", "--e2e"]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "lint": {
+              "cache": true,
+              "options": {
+                "cwd": "apps/shuwenger-e2e",
+                "command": "eslint ."
+              },
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/eslint.base.config.cjs",
+                "{projectRoot}/eslint.config.cjs",
+                "{workspaceRoot}/tools/eslint-rules/**/*",
+                {
+                  "externalDependencies": ["eslint"]
+                }
+              ],
+              "outputs": ["{options.outputFile}"],
+              "metadata": {
+                "technologies": ["eslint"],
+                "description": "Runs ESLint on project",
+                "help": {
+                  "command": "pnpm exec eslint --help",
+                  "example": {
+                    "options": {
+                      "max-warnings": 0
+                    }
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "shuwenger-e2e",
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/shuwenger-e2e/src",
+          "tags": [],
+          "implicitDependencies": ["shuwenger"]
+        }
+      },
+      "shuwenger": {
+        "name": "shuwenger",
+        "type": "app",
+        "data": {
+          "root": "apps/shuwenger",
+          "targets": {
+            "lint": {
+              "executor": "@nx/eslint:lint",
+              "options": {},
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "{workspaceRoot}/.eslintrc.json",
+                "{workspaceRoot}/.eslintignore",
+                "{workspaceRoot}/eslint.config.cjs"
+              ]
+            },
+            "build": {
+              "executor": "@angular-devkit/build-angular:application",
+              "outputs": ["{options.outputPath}"],
+              "options": {
+                "outputPath": "dist/apps/shuwenger",
+                "index": "apps/shuwenger/src/index.html",
+                "browser": "apps/shuwenger/src/main.ts",
+                "polyfills": ["zone.js"],
+                "tsConfig": "apps/shuwenger/tsconfig.app.json",
+                "assets": [
+                  {
+                    "glob": "**/*",
+                    "input": "apps/shuwenger/public"
+                  }
+                ],
+                "styles": ["apps/shuwenger/src/styles.css"],
+                "scripts": [],
+                "server": "apps/shuwenger/src/main.server.ts",
+                "ssr": {
+                  "entry": "apps/shuwenger/src/server.ts"
+                },
+                "prerender": true
+              },
+              "configurations": {
+                "production": {
+                  "budgets": [
+                    {
+                      "type": "initial",
+                      "maximumWarning": "500kb",
+                      "maximumError": "1mb"
+                    },
+                    {
+                      "type": "anyComponentStyle",
+                      "maximumWarning": "4kb",
+                      "maximumError": "8kb"
+                    }
+                  ],
+                  "outputHashing": "all"
+                },
+                "development": {
+                  "optimization": false,
+                  "extractLicenses": false,
+                  "sourceMap": true
+                }
+              },
+              "defaultConfiguration": "production",
+              "parallelism": true,
+              "cache": true,
+              "dependsOn": ["^build"],
+              "inputs": ["production", "^production"]
+            },
+            "serve": {
+              "executor": "@angular-devkit/build-angular:dev-server",
+              "configurations": {
+                "production": {
+                  "buildTarget": "shuwenger:build:production"
+                },
+                "development": {
+                  "buildTarget": "shuwenger:build:development"
+                }
+              },
+              "defaultConfiguration": "development",
+              "options": {},
+              "parallelism": true
+            },
+            "extract-i18n": {
+              "executor": "@angular-devkit/build-angular:extract-i18n",
+              "options": {
+                "buildTarget": "shuwenger:build"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "executor": "@nx/jest:jest",
+              "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+              "options": {
+                "jestConfig": "apps/shuwenger/jest.config.ts",
+                "passWithNoTests": true
+              },
+              "configurations": {
+                "ci": {
+                  "ci": true,
+                  "codeCoverage": true
+                }
+              },
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production",
+                "{workspaceRoot}/jest.preset.js"
+              ]
+            },
+            "serve-static": {
+              "executor": "@nx/web:file-server",
+              "options": {
+                "buildTarget": "shuwenger:build",
+                "port": 4200,
+                "staticFilePath": "dist/apps/shuwenger/browser",
+                "spa": true
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "shuwenger",
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "projectType": "application",
+          "prefix": "app",
+          "sourceRoot": "apps/shuwenger/src",
+          "tags": [],
+          "implicitDependencies": []
+        }
+      },
+      "teams": {
+        "name": "teams",
+        "type": "lib",
+        "data": {
+          "root": "libs/f1/teams",
+          "targets": {
+            "lint": {
+              "executor": "@nx/eslint:lint",
+              "options": {},
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "{workspaceRoot}/.eslintrc.json",
+                "{workspaceRoot}/.eslintignore",
+                "{workspaceRoot}/eslint.config.cjs"
+              ]
+            },
+            "build": {
+              "executor": "@nx/angular:package",
+              "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+              "options": {
+                "project": "libs/f1/teams/ng-package.json"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "executor": "@nx/jest:jest",
+              "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+              "options": {
+                "jestConfig": "libs/f1/teams/jest.config.ts",
+                "passWithNoTests": true
+              },
+              "configurations": {
+                "ci": {
+                  "ci": true,
+                  "codeCoverage": true
+                }
+              },
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production",
+                "{workspaceRoot}/jest.preset.js"
+              ]
+            },
+            "dependencies": {
+              "executor": "@nx/workspace:dependencies",
+              "options": {
+                "dependencies": ["trpc-f1"]
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "teams",
+          "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "libs/f1/teams/src",
+          "prefix": "lib",
+          "projectType": "library",
+          "tags": [],
+          "implicitDependencies": []
+        }
+      },
+      "trpc-f1": {
+        "name": "trpc-f1",
+        "type": "lib",
+        "data": {
+          "root": "libs/trpc-f1",
+          "targets": {
+            "lint": {
+              "executor": "@nx/eslint:lint",
+              "options": {},
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "{workspaceRoot}/.eslintrc.json",
+                "{workspaceRoot}/.eslintignore",
+                "{workspaceRoot}/eslint.config.cjs"
+              ]
+            },
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": ["^nx-release-publish"],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "executor": "@nx/angular:package",
+              "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+              "options": {
+                "project": "libs/trpc-f1/ng-package.json"
+              },
+              "fileReplacements": [
+                {
+                  "replace": "libs/trpc-f1/src/env/environment.ts",
+                  "with": "libs/trpc-f1/src/env/environment.prod.ts"
+                }
+              ],
+              "configurations": {},
+              "parallelism": true
+            },
+            "development": {
+              "executor": "@nx/angular:package",
+              "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+              "options": {
+                "project": "libs/trpc-f1/ng-package.json"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "executor": "@nx/jest:jest",
+              "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+              "options": {
+                "jestConfig": "libs/trpc-f1/jest.config.ts",
+                "passWithNoTests": true
+              },
+              "configurations": {
+                "ci": {
+                  "ci": true,
+                  "codeCoverage": true
+                }
+              },
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production",
+                "{workspaceRoot}/jest.preset.js"
+              ]
+            }
+          },
+          "sourceRoot": "libs/trpc-f1/src",
+          "name": "trpc-f1",
+          "tags": ["npm:public"],
+          "metadata": {
+            "targetGroups": {},
+            "js": {
+              "packageName": "@shuwenger/trpc-f1"
+            }
+          },
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "prefix": "lib",
+          "projectType": "library",
+          "implicitDependencies": []
+        }
+      }
+    },
+    "dependencies": {
+      "shuwenger-e2e": [
+        {
+          "source": "shuwenger-e2e",
+          "target": "shuwenger",
+          "type": "implicit"
+        }
+      ],
+      "shuwenger": [
+        {
+          "source": "shuwenger",
+          "target": "teams",
+          "type": "static"
+        }
+      ],
+      "teams": [
+        {
+          "source": "teams",
+          "target": "trpc-f1",
+          "type": "static"
+        }
+      ],
+      "trpc-f1": []
+    }
+  }
+}

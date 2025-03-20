@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { CreateTRPCProxyClient, createTRPCProxyClient, httpBatchLink } from '@trpc/client';
+import {
+  CreateTRPCProxyClient,
+  createTRPCProxyClient,
+  httpBatchLink,
+} from '@trpc/client';
 import { F1Router } from '@gunsrf1/api-contracts';
 import { environment } from '../../env/environment';
 
@@ -11,17 +15,20 @@ export class TrpcApiService {
 
   constructor() {
     this.trpc = createTRPCProxyClient<F1Router>({
-      links: [httpBatchLink({ url: `${environment.apiUrl}/f1`, 
-        headers: () => ({
-          'Content-Type': 'application/json',
+      links: [
+        httpBatchLink({
+          url: `${environment.apiUrl}/f1`,
+          headers: () => ({
+            'Content-Type': 'application/json',
+          }),
+          fetch(url, options) {
+            return fetch(url, {
+              ...options,
+              credentials: 'include',
+            });
+          },
         }),
-        fetch(url, options) {
-          return fetch(url, {
-            ...options,
-            credentials: 'include',
-          });
-        },
-      })],
+      ],
     });
   }
 
@@ -29,4 +36,3 @@ export class TrpcApiService {
     return this.trpc;
   }
 }
-

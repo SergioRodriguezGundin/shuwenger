@@ -7,7 +7,12 @@ import { ThemeToggleComponent } from '../../features/dashboard/components/theme-
 
 @Component({
   selector: 'app-dashboard-layout',
-  imports: [CommonModule, RouterModule, SideMenuComponent, ThemeToggleComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    SideMenuComponent,
+    ThemeToggleComponent,
+  ],
   templateUrl: './dashboard.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

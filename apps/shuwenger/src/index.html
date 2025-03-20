@@ -8,7 +8,9 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <script>
       if (
-        localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
       ) {
         if (document && document.documentElement) {
           document.documentElement.setAttribute('data-theme', 'dark');

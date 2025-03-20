@@ -7,15 +7,12 @@
     <div class="text-sm">USER/ LOGIN LOGOUT</div>
   </header>
 
-  <!-- Main Content Area -->
   <div class="grid grid-cols-[250px_1fr] h-full">
-    <!-- Left Sidebar -->
     <nav class="bg-base-200 border-r border-base-300 p-4">
       <app-side-menu></app-side-menu>
     </nav>
 
-    <!-- Main Content -->
-    <main class="p-6 bg-background">
+    <main class="bg-background overflow-y-auto">
       <router-outlet></router-outlet>
     </main>
   </div>
